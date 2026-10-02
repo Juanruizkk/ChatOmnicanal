@@ -1,41 +1,49 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useMedia, useReducedMotion } from "@/lib/useMedia";
+import { useReducedMotion } from "@/lib/useMedia";
 
-const Prism = dynamic(() => import("@/components/reactbits/Prism"), { ssr: false });
+const GradientWaves = dynamic(() => import("@/components/GradientWaves"), {
+  ssr: false,
+});
 
-/** Prisma de React Bits detrás del hero. Con reduced motion queda solo el degradé estático. */
 export function HeroBackground() {
   const reduced = useReducedMotion();
-  const dark = useMedia("(prefers-color-scheme: dark)");
 
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
+      className="pointer-events-none absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_bottom,black_65%,transparent)]"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_70%_30%,color-mix(in_oklab,var(--ig)_14%,transparent),transparent),radial-gradient(50%_45%_at_90%_60%,color-mix(in_oklab,var(--wa)_14%,transparent),transparent),radial-gradient(45%_40%_at_55%_70%,color-mix(in_oklab,var(--ms)_12%,transparent),transparent)]" />
       {!reduced && (
-        <div className={`absolute inset-0 ${dark ? "opacity-70" : "opacity-60"}`}>
-          <Prism
-            key={dark ? "dark" : "light"}
-            animationType="rotate"
-            timeScale={0.35}
-            height={3.6}
-            baseWidth={5.5}
-            scale={3.4}
-            glow={dark ? 0.9 : 1}
-            noise={0}
-            hueShift={0.35}
-            colorFrequency={0.9}
-            bloom={1}
-            offset={{ x: 260, y: 40 }}
-            lightMode={!dark}
-            suspendWhenOffscreen
-          />
+        <div className="absolute inset-0 flex items-center justify-center opacity-70 dark:opacity-60">
+          <div style={{ width: "1080px", height: "1080px", position: "relative" }}>
+            <GradientWaves
+              horizonColor="#5227FF"
+              waveColor="#FF9FFC"
+              crestColor="#FFFFFF"
+              speed={0.4}
+              amplitude={2.5}
+              waveScale={0.6}
+              waveRatio={0.9}
+              swell={35}
+              turbulence={20}
+              tilt={1.11}
+              zoom={1}
+              height={5.5}
+              fogDepth={15}
+              detail="medium"
+              brightness={1}
+              opacity={1}
+              grain
+              grainIntensity={0.05}
+              mouseInteraction
+              parallaxStrength={0.5}
+            />
+          </div>
         </div>
       )}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
     </div>
   );
 }
