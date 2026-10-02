@@ -1,6 +1,7 @@
 import BlurText from "@/components/reactbits/BlurText";
 import { HeroBackground } from "./HeroBackground";
 import { ChatDemo } from "./ChatDemo";
+import { GlowButton } from "@/components/ui/GlowButton";
 import { waLink } from "@/lib/links";
 
 const headline = "Tus clientes preguntan. Tu negocio responde, a cualquier hora.";
@@ -21,13 +22,10 @@ export function Hero() {
             Un bot responde las consultas de siempre (horarios, envíos, dirección, medios de pago) con la información
             que cargás vos. Cuando hace falta una persona, la conversación pasa a tu equipo en una sola bandeja.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href={waLink("Hola, quiero saber más sobre el servicio.")}
-              className="rounded-full bg-ink px-5 py-3 text-sm font-medium text-bg transition-opacity hover:opacity-85"
-            >
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <GlowButton href={waLink("Hola, quiero saber más sobre el servicio.")}>
               Hablemos por WhatsApp
-            </a>
+            </GlowButton>
             <a
               href="#producto"
               className="rounded-full border border-line bg-surface/70 px-5 py-3 text-sm font-medium backdrop-blur transition-colors hover:border-ink/30"

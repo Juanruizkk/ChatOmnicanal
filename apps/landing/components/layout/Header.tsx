@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
-import { waLink } from "@/lib/links";
+import { HeaderCta } from "./HeaderCta";
 
 const nav = [
   { href: "/#producto", label: "Producto" },
@@ -23,12 +23,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <a
-          href={waLink("Hola, quiero saber más sobre el servicio.")}
-          className="rounded-full bg-ink px-4 py-2 text-sm font-medium text-bg transition-opacity hover:opacity-85"
-        >
-          Hablemos
-        </a>
+        <HeaderCta />
       </div>
     </header>
   );

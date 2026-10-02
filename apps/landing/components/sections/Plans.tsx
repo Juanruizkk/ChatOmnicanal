@@ -1,6 +1,9 @@
+"use client";
+
 import { site } from "@/site.config";
 import { waLink } from "@/lib/links";
 import { SectionHeading } from "./SectionHeading";
+import { GlowButton } from "@/components/ui/GlowButton";
 
 const formatPrice = (price: number) =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 }).format(price);
@@ -48,14 +51,14 @@ export function Plans() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={waLink(`Hola, quiero consultar por el plan ${plan.name}.`)}
-                className={`mt-8 rounded-full px-5 py-3 text-center text-sm font-medium transition-opacity hover:opacity-85 ${
-                  plan.highlighted ? "bg-ink text-bg" : "border border-line bg-surface"
-                }`}
-              >
-                Consultar por el plan {plan.name}
-              </a>
+              <div className="mt-8">
+                <GlowButton
+                  href={waLink(`Hola, quiero consultar por el plan ${plan.name}.`)}
+                  variant={plan.highlighted ? "dark" : "light"}
+                >
+                  Consultar por el plan {plan.name}
+                </GlowButton>
+              </div>
             </div>
           ))}
         </div>
