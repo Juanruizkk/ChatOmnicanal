@@ -7,7 +7,7 @@ const headline = "Tus clientes preguntan. Tu negocio responde, a cualquier hora.
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate overflow-hidden min-h-screen">
       <HeroBackground />
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:grid-cols-[1.15fr_1fr] lg:pb-28">
         <div>
