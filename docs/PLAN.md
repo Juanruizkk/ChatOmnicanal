@@ -15,29 +15,43 @@
 
 | Capa | Tecnología |
 | --- | --- |
-| Backend API | Node.js + TypeScript + Fastify |
-| ORM / DB | Drizzle ORM + PostgreSQL 16 con `pgvector` |
-| Cola / jobs | Redis + BullMQ |
-| Frontend (panel) | React + TypeScript + Vite |
-| Tiempo real | WebSocket (o SSE) desde la API al panel |
-| Infra local | Docker Compose (postgres, redis, api, worker, web) |
-| LLM | Proveedor configurable detrás de una interfaz (`LlmProvider`) |
+| Backend API | .NET 8 + ASP.NET Core — Controllers → Services → Repositories + Mappers |
+| ORM / DB | EF Core 8 + PostgreSQL 16 con `pgvector` |
+| Cola / jobs | Hangfire (persiste en PostgreSQL) |
+| Auth | Clerk |
+| Frontend (panel) | React 18 + Vite + TypeScript — repo separado |
+| Tiempo real | SignalR |
+| Infra local | Docker Compose (postgres + pgvector, api, worker) |
+| Deploy | Dokploy |
+| LLM | Proveedor configurable detrás de una interfaz (`ILlmProvider`) |
 
-Arquitectura en capas: `routes → services → repositories`, con DTOs y mappers explícitos. Lógica de negocio fuera de los handlers HTTP.
+Arquitectura: Clean Architecture — Domain → Application → Infrastructure → API.
 
-### Estructura del repo (monorepo)
+### Estructura de repos (dos repos separados)
 
+**chatomnicanal-api**
 ```
-apps/
-  api/        # Fastify: REST + webhooks + websocket
-  worker/     # BullMQ: procesamiento de mensajes, bot, embeddings
-  web/        # Panel React
-packages/
-  shared/     # tipos, DTOs, enums compartidos
-  db/         # esquema Drizzle y migraciones
-docs/
-  alcance.md
-  PLAN.md
+ChatOmnicanal.sln
+src/
+  ChatOmnicanal.Domain/        # Entidades, enums, sin dependencias externas
+  ChatOmnicanal.Application/   # Interfaces, casos de uso, DTOs
+  ChatOmnicanal.Infrastructure/ # EF Core, Hangfire, repositorios
+  ChatOmnicanal.API/           # ASP.NET Core controllers, Program.cs
+  ChatOmnicanal.Worker/        # Hangfire workers
+tests/
+  ChatOmnicanal.Domain.Tests/
+  ChatOmnicanal.Integration.Tests/
+docker-compose.yml
+```
+
+**chatomnicanal-web**
+```
+src/
+  components/
+  pages/
+  hooks/
+  services/   # llamadas a la API
+vite.config.ts
 ```
 
 ## Modelo de datos base
