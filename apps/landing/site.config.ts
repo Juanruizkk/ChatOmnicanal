@@ -18,8 +18,8 @@ export type Plan = {
 };
 
 export const site = {
-  brand: "TuMarca",
-  domain: "dominio.com",
+  brand: "PentaBot",
+  domain: "pentabot.site",
   description:
     "Respuestas automáticas para WhatsApp, Instagram y Messenger, con una bandeja compartida para que tu equipo tome cualquier conversación.",
   legal: {
@@ -30,22 +30,22 @@ export const site = {
     jurisdiccion: "Ciudad Autónoma de Buenos Aires",
   },
   contact: {
-    email: "contacto@dominio.com",
-    privacyEmail: "privacidad@dominio.com",
+    email: "hola@pentabot.site",
+    privacyEmail: "privacidad@pentabot.site",
     phone: "+54 9 11 0000-0000",
     /** Solo dígitos, formato internacional, para wa.me. */
     whatsapp: "5491100000000",
   },
   /** Proveedores que procesan datos. Mientras no estén definidos se describen por categoría. */
   processors: {
-    llm: null as string | null,
-    hosting: null as string | null,
+    llm: "Groq" as string | null,
+    hosting: "Vercel" as string | null,
   },
   /** Días tras la baja de la cuenta en los que se borran los datos. */
   retentionDays: 30,
   /** Días hábiles para responder un pedido de eliminación. */
   deletionResponseDays: 10,
-  legalUpdatedAt: "2026-10-02",
+  legalUpdatedAt: "2026-10-06",
   plans: [
     {
       name: "Básico",
