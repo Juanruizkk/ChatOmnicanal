@@ -160,28 +160,17 @@ const GradientWaves = ({
     const container = containerRef.current;
     if (!container) return;
 
-    let renderer;
-    try {
-      renderer = new Renderer({
-        webgl: 2,
-        alpha: true,
-        premultipliedAlpha: true,
-        antialias: false,
-        dpr: Math.min(window.devicePixelRatio || 1, 2)
-      });
-    } catch {
-      try {
-        renderer = new Renderer({
-          webgl: 1,
-          alpha: true,
-          premultipliedAlpha: true,
-          antialias: false,
-          dpr: Math.min(window.devicePixelRatio || 1, 2)
-        });
-      } catch {
-        return;
-      }
-    }
+    const testCanvas = document.createElement('canvas');
+    const webglVersion = testCanvas.getContext('webgl2') ? 2 : testCanvas.getContext('webgl') ? 1 : 0;
+    if (webglVersion === 0) return;
+
+    const renderer = new Renderer({
+      webgl: webglVersion,
+      alpha: true,
+      premultipliedAlpha: true,
+      antialias: false,
+      dpr: Math.min(window.devicePixelRatio || 1, 2)
+    });
 
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);
