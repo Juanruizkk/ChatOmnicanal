@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+.worktrees/
+.claude/
+.DS_Store
+*.log
+chatOmnicanal-api/
+chatOmnicanal-web/
