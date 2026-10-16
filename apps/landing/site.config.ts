@@ -23,18 +23,18 @@ export const site = {
   description:
     "Respuestas automáticas para WhatsApp, Instagram y Messenger, con una bandeja compartida para que tu equipo tome cualquier conversación.",
   legal: {
-    razonSocial: "RAZÓN SOCIAL S.A.S.",
-    cuit: "30-00000000-0",
-    domicilio: "Calle 123, Ciudad, Provincia, Argentina",
+    razonSocial: "PENTAJUL S.A.S.",
+    cuit: "30-71944977-4",
+    domicilio: "Lote 98 Dpto 98 - Barrio Golf Country Club, Yerba Buena, Tucumán, CP 4107, Argentina",
     /** Ciudad para la jurisdicción de los términos. */
-    jurisdiccion: "Ciudad Autónoma de Buenos Aires",
+    jurisdiccion: "Yerba Buena, Tucumán",
   },
   contact: {
-    email: "hola@pentabot.site",
-    privacyEmail: "privacidad@pentabot.site",
-    phone: "+54 9 11 0000-0000",
+    email: "contacto@pentabot.site",
+    privacyEmail: "contacto@pentabot.site",
+    phone: "+54 381 201-0253",
     /** Solo dígitos, formato internacional, para wa.me. */
-    whatsapp: "5491100000000",
+    whatsapp: "543812010253",
   },
   /** Proveedores que procesan datos. Mientras no estén definidos se describen por categoría. */
   processors: {
