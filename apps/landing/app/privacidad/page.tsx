@@ -25,14 +25,13 @@ export default function PrivacidadPage() {
     >
       <h2>1. Quiénes somos</h2>
       <p>
-        {site.brand} es un servicio de {legal.razonSocial}, CUIT {legal.cuit}, con domicilio en {legal.domicilio} (“
-        <strong>nosotros</strong>”). Para cualquier consulta sobre privacidad escribinos a{" "}
-        <a href={mailto(contact.privacyEmail)}>{contact.privacyEmail}</a>.
+        {site.brand} es un servicio de {legal.razonSocial}, CUIT {legal.cuit}, con domicilio en {legal.domicilio}.
+        Para cualquier consulta sobre privacidad escribinos a <a href={mailto(contact.privacyEmail)}>{contact.privacyEmail}</a>.
       </p>
 
       <h2>2. Qué hace el servicio</h2>
       <p>
-        {site.brand} permite a negocios (“<strong>clientes</strong>”) responder automáticamente los mensajes que reciben
+        {site.brand} permite a negocios responder automáticamente los mensajes que reciben
         por WhatsApp, Instagram y Messenger, y atender esas conversaciones con su equipo desde un panel. Las personas
         que escriben a esos negocios son los “<strong>usuarios finales</strong>”.
       </p>
