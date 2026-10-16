@@ -1,15 +1,16 @@
+import Image from "next/image";
+import logoSrc from "@/components/logos/pentabotlogo.jpeg";
 import { site } from "@/site.config";
 
-/** Logotipo provisorio: la marca y tres puntos, uno por canal. */
-export function Logo() {
+export function Logo({ height = 32 }: { height?: number }) {
   return (
-    <span className="inline-flex items-center gap-2 text-[15px] font-semibold tracking-tight">
-      <span aria-hidden className="flex gap-[3px]">
-        <span className="size-2 rounded-full bg-wa" />
-        <span className="size-2 rounded-full bg-ig" />
-        <span className="size-2 rounded-full bg-ms" />
-      </span>
-      {site.brand}
-    </span>
+    <Image
+      src={logoSrc}
+      alt={site.brand}
+      height={height}
+      width={0}
+      style={{ width: "auto", height }}
+      priority
+    />
   );
 }
