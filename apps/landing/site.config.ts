@@ -12,8 +12,12 @@ export type Plan = {
   channels: string[];
   conversations: string;
   features: string[];
-  /** Precio mensual en ARS. `null` muestra "Consultar". */
+  /** Precio mensual en USD. `null` muestra "Consultar". */
   price: number | null;
+  /** Texto del botón del plan. */
+  cta: string;
+  /** Aclaración que se muestra debajo del precio. */
+  note?: string;
   highlighted?: boolean;
 };
 
@@ -48,9 +52,9 @@ export const site = {
   legalUpdatedAt: "2026-10-06",
   plans: [
     {
-      name: "Básico",
-      summary: "Para empezar a responder WhatsApp en automático.",
-      channels: ["WhatsApp"],
+      name: "Un canal",
+      summary: "Empezá por el canal donde más te escriben.",
+      channels: ["WhatsApp, Instagram o Messenger"],
       conversations: "Cupo mensual de conversaciones atendidas por el bot",
       features: [
         "Bandeja compartida",
@@ -58,20 +62,24 @@ export const site = {
         "Horario de atención y mensajes fuera de horario",
         "Carga de catálogo, políticas y preguntas frecuentes",
       ],
-      price: null,
+      price: 50,
+      cta: "Empezar con un canal",
+      note: "Después podés sumar más canales por USD 30 al mes cada uno.",
     },
     {
-      name: "Pro",
-      summary: "Los tres canales en una sola bandeja.",
+      name: "Pack completo",
+      summary: "Los tres canales en una sola bandeja, desde el primer día.",
       channels: ["WhatsApp", "Instagram", "Messenger"],
       conversations: "Cupo mensual ampliado",
       features: [
-        "Todo lo del plan Básico",
-        "Instagram y Messenger",
+        "Todo lo del plan de un canal",
+        "WhatsApp, Instagram y Messenger",
         "Etiquetado de conversaciones que llegan desde anuncios",
         "Más agentes en el equipo",
       ],
-      price: null,
+      price: 90,
+      cta: "Quiero el pack completo",
+      note: "Ahorrás USD 20 al mes frente a sumar los canales de a uno.",
       highlighted: true,
     },
   ] satisfies Plan[],

@@ -5,8 +5,7 @@ import { waLink } from "@/lib/links";
 import { SectionHeading } from "./SectionHeading";
 import { GlowButton } from "@/components/ui/GlowButton";
 
-const formatPrice = (price: number) =>
-  new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS", maximumFractionDigits: 0 }).format(price);
+const formatPrice = (price: number) => `USD ${price}`;
 
 export function Plans() {
   return (
@@ -48,6 +47,7 @@ export function Plans() {
                 {plan.price !== null && <span className="text-base font-normal text-muted"> /mes</span>}
               </p>
               <p className="mt-1 text-sm text-muted">{plan.conversations}</p>
+              {plan.note && <p className="mt-3 text-sm font-semibold text-brand-teal">{plan.note}</p>}
               <ul className="mt-6 space-y-2.5 border-t border-line pt-6 text-sm">
                 {plan.features.map((f) => (
                   <li key={f} className="flex gap-2.5">
@@ -60,10 +60,10 @@ export function Plans() {
               </ul>
               <div className="mt-8">
                 <GlowButton
-                  href={waLink(`Hola, quiero consultar por el plan ${plan.name}.`)}
+                  href={waLink(`Hola, me interesa el plan ${plan.name} de PentaBot.`)}
                   variant={plan.highlighted ? "dark" : "light"}
                 >
-                  Consultar por el plan {plan.name}
+                  {plan.cta}
                 </GlowButton>
               </div>
             </div>
