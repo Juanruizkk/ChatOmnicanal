@@ -78,7 +78,7 @@ export function Channels() {
               <div className={`mb-4 inline-flex rounded-xl p-2.5 ${c.bg}`}>
                 <c.Icon className={`size-6 ${c.color}`} />
               </div>
-              <h3 className="text-lg font-semibold tracking-tight">{c.name}</h3>
+              <h3 className="text-lg font-bold tracking-tight">{c.name}</h3>
               <p className="mt-3 text-sm leading-relaxed text-ink/80">{c.body}</p>
               <p className={`mt-3 text-xs leading-relaxed ${c.color} opacity-80`}>{c.detail}</p>
             </SpotlightCard>

@@ -12,10 +12,11 @@ export function Hero() {
       <HeroBackground />
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:grid-cols-[1.15fr_1fr] lg:pb-28">
         <div>
-          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3 py-1 font-mono text-xs text-muted backdrop-blur">
-            WhatsApp · Instagram · Messenger
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1 text-xs font-semibold text-ink/80 backdrop-blur">
+            <span aria-hidden className="size-2 rounded-full bg-brand-gradient" />
+            Chatbot omnicanal · WhatsApp · Instagram · Messenger
           </p>
-          <h1 aria-label={headline} className="text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.045em] sm:text-6xl">
+          <h1 aria-label={headline} className="text-[2.6rem] font-extrabold leading-[1.04] tracking-[-0.03em] sm:text-6xl">
             <BlurText text={headline} animateBy="words" delay={70} stepDuration={0.3} className="!flex-wrap" />
           </h1>
           <p className="mt-6 max-w-xl text-lg text-muted">
@@ -28,7 +29,7 @@ export function Hero() {
             </GlowButton>
             <a
               href="#producto"
-              className="rounded-full border border-line bg-surface/70 px-5 py-3 text-sm font-medium backdrop-blur transition-colors hover:border-ink/30"
+              className="rounded-full border border-line bg-surface/80 px-5 py-3 text-sm font-semibold backdrop-blur transition-colors hover:border-brand-blue/50 hover:text-brand-blue"
             >
               Ver cómo funciona
             </a>

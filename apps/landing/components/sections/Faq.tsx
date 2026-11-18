@@ -33,7 +33,7 @@ const faqs: { q: string; a: ReactNode }[] = [
       <>
         Se usan solo para prestarte el servicio y no se venden ni se usan para publicidad. Podés pedir que se eliminen
         cuando quieras. El detalle está en la{" "}
-        <Link href="/privacidad/" className="text-ink underline underline-offset-2">
+        <Link href="/privacidad/" className="text-brand-teal underline underline-offset-2">
           política de privacidad
         </Link>
         .
@@ -47,14 +47,14 @@ function FaqItem({ q, a, isOpen, onToggle }: { q: string; a: ReactNode; isOpen: 
     <div className="border-b border-line last:border-0">
       <button
         onClick={onToggle}
-        className="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left font-medium transition-colors hover:text-ink/70"
+        className="flex w-full cursor-pointer items-center justify-between gap-6 py-5 text-left font-semibold transition-colors hover:text-brand-blue"
         aria-expanded={isOpen}
       >
         <span>{q}</span>
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="shrink-0 font-mono text-xl leading-none text-muted"
+          className="shrink-0 font-mono text-xl leading-none text-brand-teal"
           aria-hidden
         >
           +

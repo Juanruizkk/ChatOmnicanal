@@ -21,7 +21,7 @@ export function Scope() {
               <span
                 aria-hidden
                 className={`mt-0.5 grid size-5 shrink-0 place-items-center rounded-full font-mono text-[11px] ${
-                  e.ok ? "bg-wa/15 text-wa" : "bg-muted/15 text-muted"
+                  e.ok ? "bg-brand-cyan/15 text-brand-teal" : "bg-muted/15 text-muted"
                 }`}
               >
                 {e.ok ? "✓" : "–"}

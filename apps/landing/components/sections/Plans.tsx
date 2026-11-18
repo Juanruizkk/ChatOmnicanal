@@ -21,12 +21,19 @@ export function Plans() {
           {site.plans.map((plan) => (
             <div
               key={plan.name}
-              className={`flex flex-col rounded-2xl border p-6 sm:p-8 ${
-                plan.highlighted ? "border-ink/25 bg-bg" : "border-line bg-bg/50"
+              className={`relative flex flex-col rounded-2xl p-6 sm:p-8 ${
+                plan.highlighted
+                  ? "border-brand-gradient shadow-[0_30px_70px_-40px_rgb(31_116_224/0.55)]"
+                  : "border border-line bg-bg/50"
               }`}
             >
+              {plan.highlighted && (
+                <span className="absolute -top-3 left-6 rounded-full bg-brand-gradient px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white sm:left-8">
+                  Recomendado
+                </span>
+              )}
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
-                <h3 className="text-xl font-semibold tracking-tight">{plan.name}</h3>
+                <h3 className="text-xl font-extrabold tracking-tight">{plan.name}</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {plan.channels.map((ch) => (
                     <span key={ch} className="rounded-full border border-line px-2 py-0.5 font-mono text-[11px] text-muted">
@@ -36,7 +43,7 @@ export function Plans() {
                 </div>
               </div>
               <p className="mt-2 text-sm text-muted">{plan.summary}</p>
-              <p className="mt-6 text-3xl font-semibold tracking-tight">
+              <p className="mt-6 font-heading text-3xl font-extrabold tracking-tight">
                 {plan.price === null ? "Consultar" : formatPrice(plan.price)}
                 {plan.price !== null && <span className="text-base font-normal text-muted"> /mes</span>}
               </p>
@@ -44,8 +51,8 @@ export function Plans() {
               <ul className="mt-6 space-y-2.5 border-t border-line pt-6 text-sm">
                 {plan.features.map((f) => (
                   <li key={f} className="flex gap-2.5">
-                    <span aria-hidden className="text-muted">
-                      —
+                    <span aria-hidden className="font-bold text-brand-teal">
+                      ✓
                     </span>
                     {f}
                   </li>

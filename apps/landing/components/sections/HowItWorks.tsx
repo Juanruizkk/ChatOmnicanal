@@ -24,8 +24,14 @@ export function HowItWorks() {
       <ol className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
         {steps.map((step, i) => (
           <li key={step.title} className="bg-surface p-6 sm:p-8">
-            <span className="font-mono text-xs text-muted">Paso {i + 1}</span>
-            <h3 className="mt-4 text-lg font-semibold tracking-tight">{step.title}</h3>
+            <span
+              aria-hidden
+              className="grid size-10 place-items-center rounded-xl bg-brand-gradient font-heading text-lg font-extrabold text-white shadow-[0_8px_20px_-8px_rgb(31_116_224/0.7)]"
+            >
+              {i + 1}
+            </span>
+            <span className="sr-only">Paso {i + 1}</span>
+            <h3 className="mt-5 text-lg font-bold tracking-tight">{step.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">{step.body}</p>
           </li>
         ))}

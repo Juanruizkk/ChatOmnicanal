@@ -1,3 +1,4 @@
+import { Eyebrow } from "./SectionHeading";
 import type { ComponentType, ReactNode } from "react";
 import { Bot, CheckCheck, Clock, Send, ShieldAlert, Sparkles, User, UserCheck } from "lucide-react";
 import { InstagramIcon, MessengerIcon, WhatsAppIcon } from "@/components/icons/Channels";
@@ -98,8 +99,8 @@ export function InboxMockup() {
     <section className="border-y border-line bg-surface/40">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="font-mono text-xs uppercase tracking-wider text-muted">Bandeja compartida</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">
+          <Eyebrow>Bandeja compartida</Eyebrow>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.025em] sm:text-4xl">
             Tu equipo entra cuando el bot no alcanza.
           </h2>
           <p className="mt-4 text-lg text-muted">
@@ -110,7 +111,7 @@ export function InboxMockup() {
 
         <figure
           aria-label="Ejemplo de la bandeja de conversaciones"
-          className="mt-14 overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_30px_80px_-40px_rgb(0_0_0/0.35)]"
+          className="mt-14 overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_30px_80px_-40px_rgb(16_27_51/0.45)]"
         >
           {/* Barra de la app */}
           <div className="flex items-center justify-between border-b border-line bg-bg px-4 py-3">

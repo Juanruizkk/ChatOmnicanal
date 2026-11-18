@@ -24,6 +24,30 @@ const GradientWaves = dynamic(() => import("@/components/GradientWaves"), {
 // ──────────────────────────────────────────────────────────────────────────────
 
 const PRESETS = {
+  // Marca PentaBot: azul profundo + olas cian + cresta violeta suave (degradé del isotipo).
+  pentabot: {
+    horizonColor: "#123A8C",
+    waveColor: "#0BB8D0",
+    crestColor: "#B9A6F2",
+    speed: 0.32,
+    amplitude: 3.6,
+    waveScale: 0.66,
+    waveRatio: 0.88,
+    swell: 38,
+    turbulence: 20,
+    tilt: 1.12,
+    zoom: 1,
+    height: 4.8,
+    fogDepth: 8,
+    detail: "medium" as const,
+    brightness: 2,
+    opacity: 1,
+    grain: true,
+    grainIntensity: 0.05,
+    mouseInteraction: true,
+    parallaxStrength: 0.5,
+  },
+
   violeta: {
     horizonColor: "#1E0059",
     waveColor: "#6D00FF",
@@ -123,8 +147,8 @@ interface HeroWavesProps {
   preset?: Preset;
 }
 
-// ← cambiá "violeta" por cualquiera de: "aurora" | "cosmos" | "magenta"
-export function HeroWaves({ preset = "violeta" }: HeroWavesProps) {
+// ← "pentabot" es la variante de marca; las demás quedan como alternativas.
+export function HeroWaves({ preset = "pentabot" }: HeroWavesProps) {
   return (
     <div className="absolute inset-0">
       <GradientWaves {...PRESETS[preset]} />

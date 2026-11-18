@@ -5,15 +5,23 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --bg: #f6f7f9;
+  /* Marca PentaBot: tinta azul marino + degradé cian → azul → violeta del isotipo */
+  --bg: #f4f8fc;
   --surface: #ffffff;
-  --ink: #0e1116;
-  --muted: #586070;
-  --line: #e2e5ea;
+  --ink: #1b2a47;
+  --muted: #56637d;
+  --line: #dde5f0;
+  --navy: #101b33;
+  --brand-cyan: #0bb8d0;
+  --brand-blue: #1f74e0;
+  --brand-violet: #8457c8;
+  /* Cian oscurecido para texto chico sobre fondo claro (contraste AA) */
+  --brand-teal: #077e92;
+  --brand-gradient: linear-gradient(115deg, #0bb8d0 0%, #1f74e0 52%, #8457c8 100%);
   --wa: #11864a;
   --ig: #c1358a;
   --ms: #1d6fe0;
-  --bot: #6b4fd8;
+  --bot: #1f74e0;
   color-scheme: light;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -59,9 +67,14 @@
   --color-ig: var(--ig);
   --color-ms: var(--ms);
   --color-bot: var(--bot);
+  --color-navy: var(--navy);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-violet: var(--brand-violet);
+  --color-brand-teal: var(--brand-teal);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-heading: var(--font-nunito), var(--font-geist-sans), sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -111,8 +124,36 @@ body {
   color: var(--ink);
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-cyan) 30%, transparent);
+}
+
+/* Utilidades de marca */
+.bg-brand-gradient {
+  background-image: var(--brand-gradient);
+}
+.text-brand-gradient {
+  background-image: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Borde con el degradé de marca sobre una tarjeta de fondo liso */
+.border-brand-gradient {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--surface), var(--surface)) padding-box,
+    var(--brand-gradient) border-box;
+}
+
 :focus-visible {
-  outline: 2px solid var(--ms);
+  outline: 2px solid var(--brand-blue);
   outline-offset: 2px;
   border-radius: 6px;
 }
@@ -171,7 +212,7 @@ body {
   font-weight: 600;
 }
 .legal a {
-  color: var(--ink);
+  color: var(--brand-teal);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
